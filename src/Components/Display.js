@@ -61,6 +61,7 @@ class Display extends Component{
                 developpedID+=" + ";
             }
             developpedID+="b^"+this.props.number.toString();
+            developpedID = this.props.number ==0 ? "1" : developpedID
         }
 
         return(

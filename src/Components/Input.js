@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Submit from './Submit.js'
 
 class Input extends Component{
     constructor() {
@@ -12,6 +13,7 @@ class Input extends Component{
                 placeholder="Type the remarkable identity\'s degree you want" 
                 class="inputNumber"
                 onChange={this.props.handleInputChange} />
+            <Submit inputOnClick={this.props.inputOnClick}/>
             </div>
         )
     }

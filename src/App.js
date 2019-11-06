@@ -1,30 +1,30 @@
 import React, { Component } from 'react';
 import Input from './Components/Input.js'
 import Display from  './Components/Display.js'
-
+let degree = 0
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      degree:0
+      number:0
     }
     this.handleInputChange = this.handleInputChange.bind(this)
+    this.inputOnClick = this.inputOnClick.bind(this)
     }
   
-
-    
+  handleInputChange(event){
+    degree = event.target.value
+  }
   
-  handleInputChange(event) {
-    
-    
+  inputOnClick(event) { 
     this.setState({
-      number: event.target.value
+      number: degree
     })
   }
   render() {
     return (
       <div className="App">
-        <Input handleInputChange={this.handleInputChange}/>
+        <Input handleInputChange={this.handleInputChange} inputOnClick={this.inputOnClick} />
         <Display number={this.state.number} />
       </div>
       );
