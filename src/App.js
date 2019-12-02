@@ -24,6 +24,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <div class="description">
+        <h1>Remarkable Identities Finder</h1>
+        <p>Kharoh Family Science prototype to calculate the remarkable identities using Pascal's triangle</p>
+      </div>
         <Input handleInputChange={this.handleInputChange} inputOnClick={this.inputOnClick} />
         <Display number={this.state.number} />
       </div>

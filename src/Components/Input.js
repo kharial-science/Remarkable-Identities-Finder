@@ -13,7 +13,7 @@ class Input extends Component{
                 placeholder="Type the remarkable identity\'s degree you want" 
                 class="inputNumber"
                 onChange={this.props.handleInputChange} />
-            <Submit inputOnClick={this.props.inputOnClick}/>
+                <Submit inputOnClick={this.props.inputOnClick}/>
             </div>
         )
     }
