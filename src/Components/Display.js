@@ -45,7 +45,7 @@ class Display extends Component{
             if (this.props.number===1){
                 return "a + b"
             };
-            developpedID.push(<span class="expression">a<var><sup>{this.props.number.toString()} + </sup></var></span>);
+            developpedID.push(<span class="expression">a<var><sup>{this.props.number.toString()}</sup> + </var></span>);
             for(var i=1;i<this.props.number;i++){
                 var aIndex=this.props.number-i;
                 var bIndex=i;
@@ -60,7 +60,7 @@ class Display extends Component{
                 };
                 developpedID.push(<span class="expression"> + </span>);
             }
-            developpedID.push(<span class="expression">b<var><sup> + {this.props.number.toString()}</sup></var></span>);
+            developpedID.push(<span class="expression">b<var><sup>{this.props.number.toString()}</sup></var></span>);
             developpedID = this.props.number == 0 ? "1" : developpedID
         }
 
