@@ -33,7 +33,7 @@ class Display extends Component{
             triangle[triangle.length-1].push(1);
 
             var pascalLayer= triangle[triangle.length-1];
-            var developpedID="";
+            var developpedID = [];
             for( var i = 0; i < pascalLayer.length; i++){ 
                 if ( pascalLayer[i] === 0) {
                 pascalLayer.splice(i, 1); 
@@ -45,28 +45,30 @@ class Display extends Component{
             if (this.props.number===1){
                 return "a + b"
             };
-            developpedID+="a^"+this.props.number.toString()+" + ";
+            developpedID.push(<span class="expression">a<var><sup>{this.props.number.toString()} + </sup></var></span>);
             for(var i=1;i<this.props.number;i++){
                 var aIndex=this.props.number-i;
                 var bIndex=i;
                 if (bIndex===1 && aIndex===1){
-                    developpedID+=pascalLayer[i].toString()+"ab";
+                    developpedID.push(<span class="expression">{pascalLayer[i].toString()}ab</span>);
                 }else if (bIndex===1){
-                    developpedID+=pascalLayer[i].toString()+"a^"+aIndex.toString()+"b";
+                developpedID.push(<span class="expression">{pascalLayer[i].toString()}a<var><sup> {aIndex.toString()}</sup></var>b</span>);
                 }else if (aIndex===1){
-                    developpedID+=pascalLayer[i].toString()+"ab^"+bIndex.toString();
+                    developpedID.push(<span class="expression">{pascalLayer[i].toString()}ab<var><sup>{bIndex.toString()}</sup></var></span>);
                 }else if (aIndex!==0 && bIndex!==0 && aIndex!==1 && bIndex!==1){
-                    developpedID+=pascalLayer[i].toString()+"a^"+aIndex.toString()+"b^"+bIndex.toString();
+                    developpedID.push(<span class="expression">{pascalLayer[i].toString()}a<var><sup>{aIndex.toString()}</sup></var>b<var><sup>{bIndex.toString()}</sup></var></span>);
                 };
-                developpedID+=" + ";
+                developpedID.push(<span class="expression"> + </span>);
             }
-            developpedID+="b^"+this.props.number.toString();
-            developpedID = this.props.number ==0 ? "1" : developpedID
+            developpedID.push(<span class="expression">b<var><sup> + {this.props.number.toString()}</sup></var></span>);
+            developpedID = this.props.number == 0 ? "1" : developpedID
         }
 
         return(
             <div className='Display'>
-                {(this.props.number) ? developpedID : "None" }
+                <p>
+                    {(this.props.number) ? developpedID : "None" }
+                </p>
             </div>
         )
     }
