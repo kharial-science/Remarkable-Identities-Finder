@@ -1,6 +1,9 @@
-import React, { Component } from 'react';
-import Input from './Components/Input.js'
-import Display from  './Components/Display.js'
+import React, { Component } from 'react'
+
+import './App.css'
+
+import Main from './Main/Main'
+
 let degree = 0
 class App extends Component {
   constructor() {
@@ -22,16 +25,17 @@ class App extends Component {
     })
   }
   render() {
+
     return (
       <div className="App">
-      <div class="description">
-        <h1>Remarkable Identities Finder</h1>
-        <p>Kharoh Family Science prototype to calculate the remarkable identities using Pascal's triangle</p>
+        <div class="description">
+          <h1>Remarkable Identities Finder</h1>
+          <p>Kharoh Family Science prototype to calculate the remarkable identities using Pascal's triangle</p>
+        </div>
+        <Main />
       </div>
-        <Input handleInputChange={this.handleInputChange} inputOnClick={this.inputOnClick} />
-        <Display number={this.state.number} />
-      </div>
-      );
+      )
     }
+
   }
 export default App;

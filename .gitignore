@@ -24,5 +24,5 @@ yarn-error.log*
 
 
 # style
-.css
-.css.map
+*.css
+*.css.map
