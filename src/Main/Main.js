@@ -11,12 +11,19 @@ class Main extends Component {
         this.state = {
             power: 4,
         }
+
+        this.handleInputClick = this.handleInputClick.bind(this)
+    }
+    
+    handleInputClick (event) {
+        const power = parseInt(document.getElementById("powerInput").value, 10)
+        if (power) this.setState({ power })
     }
 
     render() {
         return (
             <div id="Main">
-                <Input handleInputChange={this.handleInputChange} inputOnClick={this.inputOnClick} />
+                <Input handleInputClick={this.handleInputClick} />
                 <Display power={this.state.power} />
             </div>
         )

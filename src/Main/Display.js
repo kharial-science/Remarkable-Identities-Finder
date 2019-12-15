@@ -57,7 +57,7 @@ class Display extends Component{
         developpedID = developpedID.reduce((prev, curr) => [prev, <span className="+"> + </span>, curr]) // Adding + between blocks
 
         return (
-            <div className='Display'>
+            <div id="Display">
                 <p> { developpedID } </p>
             </div>
         )

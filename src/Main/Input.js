@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Submit from './Submit.js'
 
 class Input extends Component{
     constructor() {
@@ -7,13 +6,14 @@ class Input extends Component{
     }
     render() {
         return(
-            <div className='Input'>
-                <input 
-                type='number' 
-                placeholder="Type the remarkable identity\'s degree you want" 
-                class="inputNumber"
-                onChange={this.props.handleInputChange} />
-                <Submit inputOnClick={this.props.inputOnClick}/>
+            <div id="Input">
+                <div id="a-and-b">(a + b)</div>
+                <input
+                    id="powerInput"
+                    type="number" 
+                    placeholder="Type the remarkable identity\'s degree you want" 
+                />
+                <button id="submit" onClick={this.props.handleInputClick}>Render</button>
             </div>
         )
     }
