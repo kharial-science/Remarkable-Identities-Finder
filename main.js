@@ -1,4 +1,17 @@
-console.log(computeLayer(4))
+let layer = [1]
+
+for (let i = 0; i < 100; i++) {
+  setTimeout(() => {
+    appendLayerToDocument(layer)
+    layer = computeNextLayer(layer)
+  }, i * 100)
+}
+
+function appendLayerToDocument(layer) {
+  const layerElement = document.createElement('p')
+  layerElement.innerHTML = layer
+  document.querySelector('body').appendChild(layerElement)
+}
 
 
 /**
