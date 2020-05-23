@@ -1,4 +1,4 @@
-let layer = [1]
+let layer = [1, 2, 1]
 updateLayerDisplay()
 
 /**
@@ -18,6 +18,7 @@ function handleSignClick(sign) {
 function updateLayerDisplay() {
   document.getElementById('power').innerHTML = layer.length - 1
   document.getElementById('display').innerHTML = generateRemarkableIdentityFromPascalLayer(layer)
+  console.log(generateRemarkableIdentityFromPascalLayer(layer))
 }
 
 /**
@@ -25,7 +26,22 @@ function updateLayerDisplay() {
  * @param {number[]} layer 
  */
 function generateRemarkableIdentityFromPascalLayer(layer) {
-  return layer
+  const termsArray = []
+
+  for (let i = 0; i < layer.length; i++) {
+    let term = `<div class="coeff">${layer[i].toString().length > 7 ? layer[i].toExponential(5) : layer[i]}</div>`
+
+    term += '<div class="powers">'
+    if (i !== 0) term += `<span class="b-power">b${i !== 1 ? `<sup>${i}</sup>` : ''}</span>`
+    if (layer.length - i - 1 !== 0) term += `<span class="a-power">a${layer.length - i - 1 !== 1 ? `<sup>${layer.length - i - 1}</sup>` : ''}</span>`
+    term += '</div>'
+
+    term = '<div class="term">' + term + '</div>'
+
+    termsArray.push(term)
+  }
+
+  return termsArray.join('')
 }
 
 /**
