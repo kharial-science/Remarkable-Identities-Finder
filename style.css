@@ -2,3 +2,26 @@ body, html {
   margin: 0;
   padding: 0;
 }
+
+.inputs-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputs-container h2 {
+  margin: 0 3vw;
+  text-align: center;
+  font-size: 5vw;
+}
+
+.inputs-container .sign {
+  width: 3vw;
+  height: 3vw;
+
+  border-radius: 5vw;
+  border: none;
+  font-size: 2vw;
+
+}

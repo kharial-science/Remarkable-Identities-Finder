@@ -1,18 +1,32 @@
 let layer = [1]
+updateLayerDisplay()
 
-for (let i = 0; i < 100; i++) {
-  setTimeout(() => {
-    appendLayerToDocument(layer)
-    layer = computeNextLayer(layer)
-  }, i * 100)
+/**
+ * Handle the click of a sign button, to change the index of the current pascal's triangle layer by one more or one less
+ * @param {string} sign - The sign of the button click e.g. + or -
+ */
+function handleSignClick(sign) {
+  if (sign === '+') layer = computeNextLayer(layer)
+  else layer = computePreviousLayer(layer)
+
+  updateLayerDisplay()
 }
 
-function appendLayerToDocument(layer) {
-  const layerElement = document.createElement('p')
-  layerElement.innerHTML = layer
-  document.querySelector('body').appendChild(layerElement)
+/**
+ * Update the display given the global layer information
+ */
+function updateLayerDisplay() {
+  document.getElementById('power').innerHTML = layer.length - 1
+  document.getElementById('display').innerHTML = generateRemarkableIdentityFromPascalLayer(layer)
 }
 
+/**
+ * Get the remarkable identity to display given a pascal's triangle layer
+ * @param {number[]} layer 
+ */
+function generateRemarkableIdentityFromPascalLayer(layer) {
+  return layer
+}
 
 /**
  * Compute a given pascal's triangle layer
@@ -32,7 +46,7 @@ function computeLayer(layerNumber) {
 
 /**
  * Compute the next layer of the pascal's triangle given the current layer
- * @param {number} currentLayer - The current layer computed, stored in memory
+ * @param {number[]} currentLayer - The current layer computed, stored in memory
  */
 function computeNextLayer(currentLayer) {
   const nextLayer = [1]
@@ -44,4 +58,18 @@ function computeNextLayer(currentLayer) {
   nextLayer.push(1)
 
   return nextLayer
+}
+
+/**
+ * Compute the previous layer of the pascal's triangle given the current layer
+ * @param {number[]} currentLayer - The current layer computed, stored in memory
+ */
+function computePreviousLayer(currentLayer) {
+  const previousLayer = [1]
+
+  for (let i = 1; i < currentLayer.length - 1; i++) {
+    previousLayer.push(currentLayer[i] - previousLayer[i - 1])
+  }
+
+  return previousLayer
 }
